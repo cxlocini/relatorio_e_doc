@@ -1,0 +1,19 @@
+CREATE TABLE relatorio (
+  id INTEGER PRIMARY KEY,
+  data DATE,
+  id_marca INTEGER,
+  vendas INTEGER,
+  valor_do_veiculo NUMERIC,
+  nome TEXT,
+  marca TEXT
+  );
+  
+INSERT  into relatorio (data, id_marca, vendas, valor_do_veiculo, nome)
+SELECT c1, c2, c3, c4, c5
+FROM novoData1Corrigido;
+
+CREATE TABLE relatorio2 AS 
+SELECT a.data, a.vendas, a.valor_do_veiculo, a.nome, a.id_marca, b.c2 
+FROM relatorio AS a 
+JOIN novoData2Corrigido AS b 
+ON a.id_marca = b.c1;
